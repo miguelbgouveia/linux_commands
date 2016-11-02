@@ -25,6 +25,9 @@ which psql #para obter path de psql
 # para listar as bases de dados na linha de comandos do postgres
 \l
 
+# To get all tables for a database new_db
+\connect new_db;
+\dt
 
 # To inicialize the command line of postgres. If the command is not reconized go to /etc/postgresql/9.X/main and write only psql
 sudo –u postgres psql
