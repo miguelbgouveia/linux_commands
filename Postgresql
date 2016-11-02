@@ -26,7 +26,7 @@ which psql #para obter path de psql
 \l
 
 
-# Para iniciar linha de comandos do postgres. Caso não reconheça o comando posicionar-se no diretorio /etc/postgresql/9.X/main e apenas digitar psql
+# To inicialize the command line of postgres. If the command is not reconized go to /etc/postgresql/9.X/main and write only psql
 sudo –u postgres psql
 
 
