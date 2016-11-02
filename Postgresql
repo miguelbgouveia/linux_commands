@@ -34,8 +34,13 @@ sudo –u postgres psql
 \q
 
 
-# Criar novo utilizador com nome new_user
+# Creat new user with name new_user
 sudo -u postgres createuser -S -D -R -P -l new_user
+# or with login in postgresql command line tool (sudo –u postgres psql):
+CREATE USER new_user WITH PASSWORD '123456';
+
+# Get all the roles in client postgresql commandline tool
+SELECT rolname FROM pg_roles;
 
 
 # Criar nova base de dados de nome new_database em que o owner é o new_user
