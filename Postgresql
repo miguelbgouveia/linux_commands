@@ -43,8 +43,10 @@ CREATE USER new_user WITH PASSWORD '123456';
 SELECT rolname FROM pg_roles;
 
 
-# Criar nova base de dados de nome new_database em que o owner é o new_user
+# Create new database new_database with owner new_user
 sudo -u postgres createdb -O new_user new_database -E utf-8
+# Or in postgresql commandline tool:
+CREATE DATABASE new_database OWNER new_user 
 
 
 # Para iniciar e parar o serviço
