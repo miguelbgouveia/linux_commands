@@ -2,9 +2,6 @@
 ---------------------- Geral --------------------------------------
 -------------------------------------------------------------------
 
-
-
-
 # Listar os servicos activos + a porta
 netsatat -pant
 
@@ -979,9 +976,7 @@ x11vnc -passwd '1234'
 -------------------------------------------------------------------
 
 
-#Para obter informação de hardware e BIOS
-
-
+#to get information about hardware and BIOS
 dmidecode --type {Number}
 
 
@@ -1027,6 +1022,8 @@ dmidecode --type {Number}
 38 IPMI Device  
 39 Power Supply  
 
+#check the number of processing units available
+nproc
 
 -------------------------------------------------------------------
 -------------------------------------------------------------------
