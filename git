@@ -32,14 +32,17 @@ git resetHEAD document.txt
 #para mudar de branche
 git checkout branch2
 
-
 #Obter os sistemas remotos configurados
 git remote -v 
-
 
 # Criar um novo branch e ligar-se a ele ao mesmo tempo
 git checkout -b my_new_branch
 
+#List all local branches
+git branch
+
+#list all branches (remote and local)
+git branch -a
 
 # Para obter informação da situação atual do git
 git status
