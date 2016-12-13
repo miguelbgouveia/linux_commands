@@ -66,6 +66,9 @@ git reset HEAD~ --hard
 #Clone a repository just with the last n commits 
 git clone --depth [depth] [remote-url]
 
+#Clone just one branch
+git clone URL --branch branch_name --single-branch [folder]
+
 # Para fazer commit para um pull request referente a um repositório no git hub clone de um repositório oficial
 git clone https://github.com/miguelbgouveia/joomla-cms.git 
 git checkout patch-3
