@@ -23,6 +23,11 @@ git push –u origin master
 #Obter última versão do servidor
 git pull
 
+#Undo local changes in document.txt (like svn revert)
+git checkout document.txt
+
+#Remove document.txt from staging area (local copy still modified)
+git resetHEAD document.txt
 
 #para mudar de branche
 git checkout branch2
