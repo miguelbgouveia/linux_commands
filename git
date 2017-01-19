@@ -101,3 +101,6 @@ git push my_fork 20-remove-genshi-reference
 git fetch https://bitbucket.org/user/repo feature-branch # Inspect the changes 
 git checkout master 
 git merge FETCH_HEAD
+# Once the changes are integrated into their local master, the maintainer needs to push it to the official repository on 
+# the server so that other developers can access it:
+git push origin master
