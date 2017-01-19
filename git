@@ -91,14 +91,13 @@ git checkout -b 20-remove-genshi-reference
 4- Proceder às alteraçõe no código localmente
 5- Adicionar os ficheiros a serem considerados para commit (stage to commit)
 git add path/to/file.txt
-
-
 6- Criar um commit localmente com as alterações realizadas
 git commit -m "As minhas alterações"
-
-
 7- Enviar commit para repositório fork e branch criado
 git push my_fork 20-remove-genshi-reference
-
-
 8- Ir para o site do GitHub e na informação sobre a criação de um novo branch clicar no link “create new PR”.
+
+#To get and analise features in forks of the main repository and then merge into the main repository
+git fetch https://bitbucket.org/user/repo feature-branch # Inspect the changes 
+git checkout master 
+git merge FETCH_HEAD
