@@ -1,0 +1,90 @@
+-------------------------------------------------------------------
+---------------------- MySQL --------------------------------------
+-------------------------------------------------------------------
+
+
+# Install MySQL
+apt-get install php5-mysql mysql-server-core-5.5 mysql-server-5.5
+
+
+# Upload bk file
+mysql -u root -p
+use educatic
+source /var/lib/mysql/data/educatic.sql 
+
+
+# Backup data base 
+mysqldump -u root -p 'Teste' > /bk_temp/Teste.sql
+
+
+# Backup all databases
+mysqldump -u root -p --all-databases > all_databases.sql
+
+
+# stop and initialize mysql
+/etc/init.d/mysql restart
+/etc/init.d/mysql stop
+/etc/init.d/mysql start
+Or
+service mysql start|restart|stop|status 
+
+
+#kill mysql proccess
+pkill mysqld
+
+
+# Se der erro ao fazer bk de muitas bases de dados e o erro indicar
+# que não encontra ou que não consegue fazer lock a uma determinada
+# tabela significa que é necessário aumentar o limite de ficheiros 
+# abertos pelo mysql. É necessário colocar no ficheiro \etc\mysql\my.cnf 
+# a seguinte frase (colocar depois de [mysqlld_safe]): 
+open-files-limit=8192
+
+
+# If error: mysqldump: Can’t get CREATE TABLE for table `Tory_Map` (Can’t open file: ‘Tory_Map.MYI’. (errno: 145)) do the following:
+
+
+1) Do a check table as below.
+mysql> check table Tory_Map;
++——————+——-+———-+——————————-+
+| Table            | Op    | Msg_type | Msg_text                      |
++——————+——-+———-+——————————-+
+| doc.Tory_Map | check | warning  | Table is marked as crashed    |
+| doc.Tory_Map | check | error    | Found 3670180 keys of 3670179 |
+| doc.Tory_Map | check | error    | Corrupt                       |
++——————+——-+———-+——————————-+
+3 rows in set (20 min 1.65 sec)
+3) If the table is marked as crashed then do a repair of that table as below.
+mysql> repair table Tory_Map;
++——————+——–+———-+———-+
+| Table            | Op     | Msg_type | Msg_text |
++——————+——–+———-+———-+
+| doc.Tory_Map | repair | status   | OK       |
++——————+——–+———-+———-+
+1 row in set (1 min 42.77 sec)
+and if you do a check table now, the result has to be ok as below.
+mysql> check table Tory_Map;
++——————+——-+———-+———-+
+| Table            | Op    | Msg_type | Msg_text |
++——————+——-+———-+———-+
+| doc.Tory_Map | check | status   | OK       |
++——————+——-+———-+———-+
+1 row in set (6 min 3.33 sec)
+
+
+
+
+# Get mysql proccess
+ps aux | grep mysql
+
+
+# Define remote access
+Edit the fil /etc/mysql/my.cnf and make the following changes:
+	--> procurar pela tag [mysqld]
+	--> seguida a esta tag procurar pela variável skip-networking e comentá-la 
+		(# skip-networking)
+	--> procurar pela variável bind-address e igualá-la ao ip da máquina
+		(bind-address = 192.168.1.134)  ou a 0.0.0.0
+	--> reiniciar o mysql
+-------------------------------------------------------------------
+-------------------------------------------------------------------
