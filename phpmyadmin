@@ -1,0 +1,3 @@
+# If we get a limit execution time error and the php configuration is ok
+# Change the ExecTimeLimit parameter in the phpMyAdmin\libraries\config.default.php file from 300 to 3000
+$cfg['ExecTimeLimit'] = 3000;
